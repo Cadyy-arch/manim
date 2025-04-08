@@ -1,0 +1,45 @@
+from manim import *
+
+class SuperKadnelScene(Scene):
+    def construct(self):
+        # Scène 1 : Présentation de Kadnel dans sa vie ordinaire
+        text_normal = Text(
+            "Je m'appelle KADNEL,\nen garçon comme les autres.",
+            font_size=36
+        )
+        self.play(Write(text_normal))
+        self.wait(2)
+
+        # Scène 2 : L'appel du destin
+        text_call = Text(
+            "Mais quand le destin me choisit pour lutter\ncontre les forces du mal...",
+            font_size=36
+        )
+        self.play(Transform(text_normal, text_call))
+        self.wait(2)
+
+        # Scène 3 : La transformation en SUPER KADNEL !
+        text_super = Text(
+            "SUPER KADNEL !",
+            font_size=48,
+            color=YELLOW
+        )
+        self.play(Transform(text_normal, text_super), run_time=3)
+        self.wait(1)
+
+        # Ajout d'un effet de flash pour accentuer la transformation
+        self.play(Flash(text_super, color=RED, line_length=1.0), run_time=2)
+        self.wait(2)
+
+        # Scène 4 : Super Kadnel en action (simple exemple d'effet de zoom)
+        self.play(text_super.animate.scale(1.2), run_time=1)
+        self.play(text_super.animate.scale(0.8), run_time=1)
+        self.wait(2)
+
+if __name__ == "__main__":
+    from manim import config
+    # Configuration de la résolution, frame rate et autres options si besoin
+    config.pixel_width = 1920
+    config.pixel_height = 1080
+    config.frame_rate = 30
+    # Pour générer la scène en utilisant la commande 'manim -pqm super_kadnel.py SuperKadnelScene'
